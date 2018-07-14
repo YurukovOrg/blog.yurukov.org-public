@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/%D1%81%D1%82%D0%B0%D0%BD%D0%B8-%D0%B1%D0%B5-%D0%BF%D0%B8%D1%87/</loc>
+    <lastmod>2017-12-11T22:50:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/%D0%BB%D1%83%D0%B4%D0%B0-%D0%BF%D0%BE-%D1%82%D0%B5%D0%B1%D0%B5-%D0%BA%D0%B0%D0%BC%D0%B5%D0%BB%D0%B8%D1%8F/</loc>
+    <lastmod>2017-11-17T15:00:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/hirahara-ayaka-dont-give-it-up-song-translation/</loc>
+    <lastmod>2017-09-01T15:00:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/a-rainy-sunday/</loc>
+    <lastmod>2017-08-13T15:30:37+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/redis-vs-postgres-speed-comparison/</loc>
+    <lastmod>2016-10-17T10:31:28+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/%D0%B7%D0%B0-%D0%B2%D1%80%D1%8A%D0%B7%D0%BA%D0%B8%D1%82%D0%B5-%D0%BD%D0%B0-%D1%82%D0%B8%D0%BD%D0%B5%D0%B9%D0%B4%D0%B6%D1%8A%D1%80%D0%B8%D1%82%D0%B5/</loc>
+    <lastmod>2016-08-22T08:13:28+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/initial-blog-program/</loc>
+    <lastmod>2016-08-20T10:44:37+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/comparison/</loc>
+    <lastmod>2016-10-17T10:31:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/categories/experience/</loc>
+    <lastmod>2017-08-13T15:30:37+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/experience/</loc>
+    <lastmod>2017-08-13T15:30:37+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/learning-japanese/</loc>
+    <lastmod>2017-09-01T15:00:58+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/lyrics/</loc>
+    <lastmod>2017-11-17T15:00:58+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/postgres/</loc>
+    <lastmod>2016-10-17T10:31:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/posts/</loc>
+    <lastmod>2017-12-11T22:50:15+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/categories/programming/</loc>
+    <lastmod>2016-10-17T10:31:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/programming/</loc>
+    <lastmod>2016-10-17T10:31:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/redis/</loc>
+    <lastmod>2016-10-17T10:31:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/sheet-music/</loc>
+    <lastmod>2017-11-17T15:00:58+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/categories/songs/</loc>
+    <lastmod>2017-11-17T15:00:58+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/songs/</loc>
+    <lastmod>2017-11-17T15:00:58+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/</loc>
+    <lastmod>2016-10-17T10:31:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/</loc>
+    <lastmod>2017-12-11T22:50:15+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/categories/%D0%B2%D1%80%D1%8A%D0%B7%D0%BA%D0%B8/</loc>
+    <lastmod>2016-08-22T08:13:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/%D0%B2%D1%80%D1%8A%D0%B7%D0%BA%D0%B8/</loc>
+    <lastmod>2016-08-22T08:13:28+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/categories/%D1%80%D0%B8%D0%BC%D0%B0/</loc>
+    <lastmod>2017-12-11T22:50:15+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yurukov.org/tags/%D1%80%D0%B8%D0%BC%D0%B0/</loc>
+    <lastmod>2017-12-11T22:50:15+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

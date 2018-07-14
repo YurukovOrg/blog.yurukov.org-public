@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on The art of being a fool</title>
+    <link>https://blog.yurukov.org/posts/</link>
+    <description>Recent content in Posts on The art of being a fool</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Dec 2017 22:50:15 +0300</lastBuildDate>
+    
+	<atom:link href="https://blog.yurukov.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Стани бе пич</title>
+      <link>https://blog.yurukov.org/posts/%D1%81%D1%82%D0%B0%D0%BD%D0%B8-%D0%B1%D0%B5-%D0%BF%D0%B8%D1%87/</link>
+      <pubDate>Mon, 11 Dec 2017 22:50:15 +0300</pubDate>
+      
+      <guid>https://blog.yurukov.org/posts/%D1%81%D1%82%D0%B0%D0%BD%D0%B8-%D0%B1%D0%B5-%D0%BF%D0%B8%D1%87/</guid>
+      <description>на Маринката
+Коя ще те ощастливи?
+О къде си?
+Не виждам те под тези планини?
+Ти казваш че знаеш моето име,
+прости ми&amp;hellip;
+не знаех че там долу влиза светлина,
+мрака виждаш само,
+задушаваща е влажността!
+За да си щастлив трябва да излезеш,
+да се изровиш от таз планина&amp;hellip;
+Вятър ще повее,
+ще има светлина.
+Като запишеш рими,
+чак тогава говори ми,
+че знаеш разни имена.
+Чак като изчукаш ти живота,</description>
+    </item>
+    
+    <item>
+      <title>Луда по тебе - Камелия - ноти и музика</title>
+      <link>https://blog.yurukov.org/posts/%D0%BB%D1%83%D0%B4%D0%B0-%D0%BF%D0%BE-%D1%82%D0%B5%D0%B1%D0%B5-%D0%BA%D0%B0%D0%BC%D0%B5%D0%BB%D0%B8%D1%8F/</link>
+      <pubDate>Fri, 17 Nov 2017 15:00:58 +0300</pubDate>
+      
+      <guid>https://blog.yurukov.org/posts/%D0%BB%D1%83%D0%B4%D0%B0-%D0%BF%D0%BE-%D1%82%D0%B5%D0%B1%D0%B5-%D0%BA%D0%B0%D0%BC%D0%B5%D0%BB%D0%B8%D1%8F/</guid>
+      <description>Хей! Искате да разберете как да свирите &amp;ldquo;Луда по теб&amp;rdquo; на Камелия? Нотни листа, акорди и ритъм?
+Тук са: PDF или MuseScore</description>
+    </item>
+    
+    <item>
+      <title>Hirahara Ayaka: Don&#39;t Give It Up: Song Translation</title>
+      <link>https://blog.yurukov.org/posts/hirahara-ayaka-dont-give-it-up-song-translation/</link>
+      <pubDate>Fri, 01 Sep 2017 15:00:58 +0300</pubDate>
+      
+      <guid>https://blog.yurukov.org/posts/hirahara-ayaka-dont-give-it-up-song-translation/</guid>
+      <description>Song links in Youtube: Official video part Lyrics source Dictionary I used Also a huge thanks to Duolingo for teaching me Japanese basics! :) A basic Japanese particles description was also useful. Lyrics Verse 1 Sora o mau tori datte 空を舞う鳥だって Birds flying in the sky Ano hikōki datte あの飛行機だって That</description>
+    </item>
+    
+    <item>
+      <title>A Rainy Sunday</title>
+      <link>https://blog.yurukov.org/posts/a-rainy-sunday/</link>
+      <pubDate>Sun, 13 Aug 2017 15:30:37 +0300</pubDate>
+      
+      <guid>https://blog.yurukov.org/posts/a-rainy-sunday/</guid>
+      <description>Today is Sunday. It is raining.
+Piano
+Yesterday I jumped out of a plane, 3500 meters high, at 240 km/h. The wind just blows everything off you! There is nothing like it!
+As you are so far above the clouds&amp;hellip; you think differently. Because of the &amp;ldquo;lighter&amp;rdquo; air, your brain gets less oxygen and you start feeling dizzy, almost drunk.
+And what are you doing with your life? I played some piano, had a good, healthy breakfast, learned some Chinese through a favourite song of mine, learned what a tremolo on the piano is and how to play it, got some afternoon sleep in the calming, soothing wind and rain outside, and am about to embark on an adventure to go and see my grandma, because she is waiting for me and she is alone these days.</description>
+    </item>
+    
+    <item>
+      <title>Redis vs Postgres</title>
+      <link>https://blog.yurukov.org/posts/redis-vs-postgres-speed-comparison/</link>
+      <pubDate>Mon, 17 Oct 2016 10:31:28 +0300</pubDate>
+      
+      <guid>https://blog.yurukov.org/posts/redis-vs-postgres-speed-comparison/</guid>
+      <description>Hi guys!
+This is a short article about comparing Redis and Postgres in terms of pure performance. The use case: I am writing a Bulgarian rhyming dictionary. I have a dictionary and I want to store it for fast access. In-memory is the obvious choice here, but just for illustrative pruposes I set up a Postgres table to hold these words as well.
+The Setup As part of preparing for a new project, I wanted to play around with in-memory databases.</description>
+    </item>
+    
+    <item>
+      <title>За връзките на тийнейджърите</title>
+      <link>https://blog.yurukov.org/posts/%D0%B7%D0%B0-%D0%B2%D1%80%D1%8A%D0%B7%D0%BA%D0%B8%D1%82%D0%B5-%D0%BD%D0%B0-%D1%82%D0%B8%D0%BD%D0%B5%D0%B9%D0%B4%D0%B6%D1%8A%D1%80%D0%B8%D1%82%D0%B5/</link>
+      <pubDate>Mon, 22 Aug 2016 08:13:28 +0300</pubDate>
+      
+      <guid>https://blog.yurukov.org/posts/%D0%B7%D0%B0-%D0%B2%D1%80%D1%8A%D0%B7%D0%BA%D0%B8%D1%82%D0%B5-%D0%BD%D0%B0-%D1%82%D0%B8%D0%BD%D0%B5%D0%B9%D0%B4%D0%B6%D1%8A%D1%80%D0%B8%D1%82%D0%B5/</guid>
+      <description>Това е пост от Боби - тинейджър, мой приятел и гост-автор тук.
+Ах, ето още една болна тема за подрастващите деца. Не само болна, но и грешно разбрана от повечето. Желанието на всеки един тийнейджър да си има гадже е напълно разбираемо. Имаме статус в обществото, с който си повдигаме егото. Имаме си партньор, с когото да си споделяме снимките… ирония. Имаме си някого за губене на време. Имаме си човек, който си мислим, че обичаме, но истината е, че ние сме само обсебени, вкопчени в този човек, мислейки това за любов.</description>
+    </item>
+    
+    <item>
+      <title>Initial blog program</title>
+      <link>https://blog.yurukov.org/posts/initial-blog-program/</link>
+      <pubDate>Sat, 20 Aug 2016 10:44:37 +0300</pubDate>
+      
+      <guid>https://blog.yurukov.org/posts/initial-blog-program/</guid>
+      <description>Dear reader,
+I hope you find yourself reading these lines. I hope you feel your connection with me and with yourself.
+This morning whilst planning this text and drinking my cup of water on my balcony I saw on the opposite balcony a boy, a neighbor, painting the railings on his terrace. He had well-defined muscles, although they were not something extraordinary. He was beautiful. In one hand he was holding his painting brush somehow clumsily and it was as if he was obliged to paint.</description>
+    </item>
+    
+  </channel>
+</rss>
