@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="The Artful Dev">
 		<meta name="description" content="Coding, AI, Blockchain...">
-		<meta name="generator" content="Hugo 0.42.2" />
+		<meta name="generator" content="Hugo 0.68.3" />
 		<title>Redis vs Postgres &middot; The Artful Dev</title>
 		<link rel="shortcut icon" href="https://blog.yurukov.org/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.yurukov.org/css/style.css">
@@ -65,73 +65,59 @@
                 </header>
                 
                 <section id="post-body">
-                    
-
-<p>Hi guys!</p>
-
+                    <p>Hi guys!</p>
 <p>This is a short article about comparing Redis and Postgres in terms of pure performance. The use case: I am writing a Bulgarian rhyming dictionary. I have a dictionary and I want to store it for fast access. In-memory is the obvious choice here, but just for illustrative pruposes I set up a Postgres table to hold these words as well.</p>
-
 <h2 id="the-setup">The Setup</h2>
-
 <p>As part of preparing for a new project, I wanted to play around with in-memory databases. I am currently building a Rhyming dictionary app and was using Postgres as a backend database. My use-case is keeping a list of words in the Bulgarian language, so that I can query them for rhymes. I basically put Redis side-to-side with Postgres in my code, downloading a dictionary from OpenOffice, parsing it, saving it to the database and then requerying the database for all the words contained therein.</p>
-
 <p>All measeurements below are in milliseconds.</p>
-
 <h2 id="redis-vs-postgres">Redis vs Postgres</h2>
-
 <p>The code we are running is the following</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> Jedis jedis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Jedis<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;localhost&#34;</span><span style="color:#f92672">);</span>
 
-<pre><code class="language-java">final Jedis jedis = new Jedis(&quot;localhost&quot;);
+<span style="color:#66d9ef">final</span> StringBuilder redisRet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
+<span style="color:#66d9ef">final</span> StringBuilder postgresRet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
 
-final StringBuilder redisRet = new StringBuilder();
-final StringBuilder postgresRet = new StringBuilder();
+<span style="color:#66d9ef">long</span> startTimeGet <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
+IntStream<span style="color:#f92672">.</span><span style="color:#a6e22e">range</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> 100<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">smembers</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;words&#34;</span><span style="color:#f92672">));</span>
+<span style="color:#66d9ef">long</span> endTimeGet <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
 
-long startTimeGet = System.nanoTime();
-IntStream.range(0, 100).forEach(s -&gt; jedis.smembers(&quot;words&quot;));
-long endTimeGet = System.nanoTime();
+<span style="color:#66d9ef">long</span> startTimeStream <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
+jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">smembers</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;words&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> redisRet<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; ;; &#34;</span> <span style="color:#f92672">+</span> s<span style="color:#f92672">));</span>
+<span style="color:#66d9ef">long</span> endTimeStream <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
 
-long startTimeStream = System.nanoTime();
-jedis.smembers(&quot;words&quot;).stream().forEach(s -&gt; redisRet.append(&quot; ;; &quot; + s));
-long endTimeStream = System.nanoTime();
+<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> redisDurationGet <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>endTimeGet <span style="color:#f92672">-</span> startTimeGet<span style="color:#f92672">);</span>  <span style="color:#75715e">//divide by 1000000 to get milliseconds.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> redisDurationStream <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>endTimeStream <span style="color:#f92672">-</span> startTimeStream<span style="color:#f92672">);</span>  <span style="color:#75715e">//divide by 1000000 to get milliseconds.
+</span><span style="color:#75715e"></span>
 
-final long redisDurationGet = (endTimeGet - startTimeGet);  //divide by 1000000 to get milliseconds.
-final long redisDurationStream = (endTimeStream - startTimeStream);  //divide by 1000000 to get milliseconds.
+startTimeGet <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
+IntStream<span style="color:#f92672">.</span><span style="color:#a6e22e">range</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> 100<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> wordRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">());</span>
+endTimeGet <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
 
+startTimeStream <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
+wordRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">().</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> postgresRet<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; ;; &#34;</span> <span style="color:#f92672">+</span> s<span style="color:#f92672">));</span>
+endTimeStream <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
 
-startTimeGet = System.nanoTime();
-IntStream.range(0, 100).forEach(s -&gt; wordRepository.findAll());
-endTimeGet = System.nanoTime();
+<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> dbDurationGet <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>endTimeGet <span style="color:#f92672">-</span> startTimeGet<span style="color:#f92672">);</span>  <span style="color:#75715e">//divide by 1000000 to get milliseconds.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> dbDurationStream <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>endTimeStream <span style="color:#f92672">-</span> startTimeStream<span style="color:#f92672">);</span>  <span style="color:#75715e">//divide by 1000000 to get milliseconds.
+</span><span style="color:#75715e"></span>
 
-startTimeStream = System.nanoTime();
-wordRepository.findAll().stream().forEach(s -&gt; postgresRet.append(&quot; ;; &quot; + s));
-endTimeStream = System.nanoTime();
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Pure Redis get took: &#34;</span> <span style="color:#f92672">+</span> redisDurationGet<span style="color:#f92672">*</span>1E<span style="color:#f92672">-</span>8<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Redis get and Java text manipulation took: &#34;</span> <span style="color:#f92672">+</span> redisDurationStream<span style="color:#f92672">*</span>1E<span style="color:#f92672">-</span>6<span style="color:#f92672">);</span>
 
-final long dbDurationGet = (endTimeGet - startTimeGet);  //divide by 1000000 to get milliseconds.
-final long dbDurationStream = (endTimeStream - startTimeStream);  //divide by 1000000 to get milliseconds.
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Pure Postgres get took: &#34;</span> <span style="color:#f92672">+</span> dbDurationGet<span style="color:#f92672">*</span>1E<span style="color:#f92672">-</span>8<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Postgres get and Java text manipulation took: &#34;</span> <span style="color:#f92672">+</span> dbDurationStream<span style="color:#f92672">*</span>1E<span style="color:#f92672">-</span>6<span style="color:#f92672">);</span>
 
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Total word count: &#34;</span> <span style="color:#f92672">+</span> jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">scard</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;words&#34;</span><span style="color:#f92672">));</span>
 
-System.out.println(&quot;Pure Redis get took: &quot; + redisDurationGet*1E-8);
-System.out.println(&quot;Redis get and Java text manipulation took: &quot; + redisDurationStream*1E-6);
-
-System.out.println(&quot;Pure Postgres get took: &quot; + dbDurationGet*1E-8);
-System.out.println(&quot;Postgres get and Java text manipulation took: &quot; + dbDurationStream*1E-6);
-
-System.out.println(&quot;Total word count: &quot; + jedis.scard(&quot;words&quot;));
-
-jedis.close();
-</code></pre>
-
-<p>Comparing the database access for both we can get the following on a cold start</p>
-
+jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</code></pre></div><p>Comparing the database access for both we can get the following on a cold start</p>
 <pre><code>Pure Redis get took: 68.270477
 Redis get and Java text manipulation took: 42.318915
 Pure Postgres get took: 487.195526
 Postgres get and Java text manipulation took: 66.469518
 Total word count: 21097
 </code></pre>
-
 <p>on a cold start and for two subsequent calls after that</p>
-
 <pre><code>Pure Redis get took: 27.069855
 Redis get and Java text manipulation took: 31.519133
 Pure Postgres get took: 162.42595699999998
@@ -146,54 +132,38 @@ Pure Postgres get took: 98.381185
 Postgres get and Java text manipulation took: 45.024408
 Total word count: 21097
 </code></pre>
-
 <p>As you can see, after the first call, Redis retains a constant access time. Postgres however keeps decreasing its access time as it (probably) caches the data. It levels out at about <strong>45.249686999999994</strong> milliseconds.</p>
-
 <p>Redis keeps itself in the <strong>20-30</strong> miliseconds ballpark over multiple runs.</p>
-
 <p>Also, <code>StringBuilder</code> is really really much faster than using plain strings. We know this from textbooks, however to give you an idea of the order of savings you could get:</p>
-
 <p>Using a simple <code>String</code></p>
-
 <pre><code>Redis get and Java text manipulation took: 900.9527889999999 (vs ~40 milliseconds)
 Postgres get and Java text manipulation took: 775.160843 (vs ~50 milliseconds)
 </code></pre>
-
 <h2 id="redis-stringset">Redis StringSet</h2>
-
 <p>Now implementing Redis&rsquo; <code>StringSet</code> so not to use keys directly. (The Redis documentation advises the use of <code>StringSet</code>, over getting all keys stored in Redis using <code>jedis.keys(&quot;*&quot;)</code>)</p>
-
 <p>The performance gains of this approach are&hellip; non-existent as it seems. The get operation takes the same amount of time.</p>
-
 <p>BEFORE:</p>
-
 <pre><code>Pure Redis get took: 21.217271
 Redis get and Java text manipulation took: 22.844576
 Pure Postgres get took: 48.261527
 Postgres get and Java text manipulation took: 28.660894
 Total word count: 21097
 </code></pre>
-
 <p>AFTER:</p>
-
 <pre><code>Pure Redis get took: 30.149960999999998
 Redis get and Java text manipulation took: 17.239033
 Pure Postgres get took: 46.029207
 Postgres get and Java text manipulation took: 22.428577
 Total word count: 21097
 </code></pre>
-
 <p>MEAN TIME FOR 100 iterations:</p>
-
 <pre><code>Pure Redis get took: 13.13524347
 Redis get and Java text manipulation took: 17.324793
 Pure Postgres get took: 20.25542389
 Postgres get and Java text manipulation took: 32.368626
 Total word count: 21097
 </code></pre>
-
 <p>Happy coding!</p>
-
 <p>Peace out!</p>
 
                 </section>
@@ -249,7 +219,7 @@ Total word count: 21097
     
     <p class="small">
     
-       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> The Artful Dev
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> The Artful Dev
     
     </p>
     <p class="small">
@@ -268,7 +238,7 @@ Total word count: 21097
 
 
   
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
